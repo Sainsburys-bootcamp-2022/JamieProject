@@ -1,0 +1,46 @@
+.column {
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+    border: 7px rgb(31, 47, 227) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+}
+
+.row {
+    width: 700px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.marker {
+    width: 50%;
+    height: 50%;
+}
+
+#winner-display {
+    display: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(24, 16, 131);
+}
+
+body {
+    text-align: center;
+    background-color: rgb(245, 233, 233);
+    font-family: "Courier New", monospace;
+}
+
+#reset-button{
+    margin-top: 10px;
+}
+
+.redcircle { 
+    width: 80px;
+    height: 80px;
+    background-color: red;
+    border-radius: 50%;
+    
+}
