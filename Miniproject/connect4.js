@@ -1,3 +1,27 @@
+const txt1 = document.getElementById('player1name');
+const txt2 = document.getElementById('player2name');
+const btn1 = document.getElementById('button1');
+const out1 = document.getElementById('output1');
+const out2 = document.getElementById('output2');
+let redScore = document.getElementById('redScore')
+let redWins = 0;
+let yellowScore = document.getElementById('yellowScore')
+let yellowWins =0;
+
+
+
+
+function userdisplay() {
+
+    out1.innerHTML = txt1.value;
+    out2.innerHTML = txt2.value;
+
+}
+btn1.addEventListener('click',userdisplay);
+
+
+
+
 // Make your changes to store and update game state in this file
 let board = [[null, null, null, null, null, null, null],
              [null, null, null, null, null, null, null],
@@ -7,7 +31,11 @@ let board = [[null, null, null, null, null, null, null],
              [null, null, null, null, null, null, null],] 
 
 
- let redTurn = true
+ let redTurn = true;
+
+ 
+
+ 
 
  function getNewBoard(){
    return [[null, null, null, null, null, null, null],
@@ -46,42 +74,68 @@ function takeTurn(row, column) {
     console.log(`takeTurn was called with row: ${row}, column: ${column}`);
 }
 
+
+
+
 // Return either "noughts", "crosses" or "nobody" if the game is over.
 // Otherwise return null to continue playing.
 function checkWinner() 
     { 
 
-    colour = ["reds", "yellows"]
+    
 
-    for (c=0; c<2; c++){
-        for (i=0; i<6; i++){
-            for (j=0; j<7; j++){
+    
+    for (i=0; i<6; i++){
+        for (j=0; j<7; j++){
         
     
 
-    if(( board[i][j] === colour[c] && board[i]?.[j+1] === colour[c] && board[i]?.[j+2] === colour[c] && board[i]?.[j+3] === colour[c]) ||
-       ( board[i][j] === colour[c] && board[i+1]?.[j] === colour[c] && board[i+2]?.[j] === colour[c] && board[i+3]?.[j] === colour[c]) ||
-       ( board[i]?.[j] === colour[c] && board[i+1]?.[j+1] === colour[c] && board[i+2]?.[j+2] === colour[c] && board[i+3]?.[j+3] === colour[c]) ||
-       ( board[i+3]?.[j] === colour[c] && board[i+2]?.[j+1] === colour[c] && board[i+1]?.[j+2] === colour[c] && board[i]?.[j+3] === colour[c]))
-    
-    {   gameOver = true
-        return (winner = (colour[c]))
-        
+    if((( board[i][j] === "reds" && board[i]?.[j+1] === "reds" && board[i]?.[j+2] === "reds" && board[i]?.[j+3] === "reds") ||
+       ( board[i][j] === "reds" && board[i+1]?.[j] === "reds" && board[i+2]?.[j] === "reds" && board[i+3]?.[j] === "reds") ||
+       ( board[i]?.[j] === "reds" && board[i+1]?.[j+1] === "reds" && board[i+2]?.[j+2] === "reds" && board[i+3]?.[j+3] === "reds") ||
+       ( board[i+3]?.[j] === "reds" && board[i+2]?.[j+1] === "reds" && board[i+1]?.[j+2] === "reds" && board[i]?.[j+3] === "reds"))
+       && gameOver === false
+       )
        
-    } 
+    
+    {   
+        redWins += 1
+        redScore.textContent = redWins
+        gameOver = true
+        return (winner = (txt1.value))
         
-    }
+        
+          } 
+    
+    else if ((( board[i][j] === "yellows" && board[i]?.[j+1] === "yellows" && board[i]?.[j+2] === "yellows" && board[i]?.[j+3] === "yellows") ||
+    ( board[i][j] === "yellows" && board[i+1]?.[j] === "yellows" && board[i+2]?.[j] === "yellows" && board[i+3]?.[j] === "yellows") ||
+    ( board[i]?.[j] === "yellows" && board[i+1]?.[j+1] === "yellows" && board[i+2]?.[j+2] === "yellows" && board[i+3]?.[j+3] === "yellows") ||
+    ( board[i+3]?.[j] === "yellows" && board[i+2]?.[j+1] === "yellows" && board[i+1]?.[j+2] === "yellows" && board[i]?.[j+3] === "yellows"))
+    && gameOver === false
+    )
+    
+ 
+ {   
+     yellowWins += 1
+     yellowScore.textContent = yellowWins
+     gameOver = true
+     return (winner = (txt2.value))
+     
+     
+       }  
 }
 }
+     
         
     
-
-
     console.log("checkWinner was called");
     return null;
 }
 
+
+ 
     
+   
 // Set the game state back to its original state to play another game.
 function resetGame() {
     

@@ -17,8 +17,8 @@
 }
 
 .marker {
-    width: 80px;
-    height: 80px;
+    width: 20px;
+    height: 20px;
 }
 
 #winner-display {
@@ -29,6 +29,8 @@
 
 body {
     text-align: center;
+    background-color: rgb(220, 226, 43);
+    font-family: "Courier New", monospace;
 }
 
 #reset-button{

@@ -27,7 +27,7 @@ function drawBoard(board) {
             if (!board[rowIndex][columnIndex]) {
                 continue;
             }
-            const cellText = board[rowIndex][columnIndex] === "nought" ? "⭕" : "❌";
+            const cellText = board[rowIndex][columnIndex] === "noughts" ? "⭕" : "❌";
             document.getElementById(`row-${rowIndex}-column-${columnIndex}`).innerText = cellText;
         }
     }
@@ -38,7 +38,7 @@ function isValidRowOrColumn(array) {
 }
 
 function isValidColumn(columnArray) {
-    return isValidRowOrColumn(columnArray) && columnArray.every(function (item) { return ["nought", "cross", null].includes(item); });
+    return isValidRowOrColumn(columnArray) && columnArray.every(function (item) { return ["noughts", "crosses", null].includes(item); });
 }
 
 // A grid position was clicked call the game's turn function, redraw and then check for a winner.
