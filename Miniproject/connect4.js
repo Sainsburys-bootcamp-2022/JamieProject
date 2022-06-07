@@ -3,6 +3,7 @@ const txt2 = document.getElementById('player2name');
 const btn1 = document.getElementById('button1');
 const out1 = document.getElementById('output1');
 const out2 = document.getElementById('output2');
+let playerTurn = document.getElementById('player-Turn')
 let redScore = document.getElementById('redScore')
 let redWins = 0;
 let yellowScore = document.getElementById('yellowScore')
@@ -33,9 +34,6 @@ let board = [[null, null, null, null, null, null, null],
 
  let redTurn = true;
 
- 
-
- 
 
  function getNewBoard(){
    return [[null, null, null, null, null, null, null],
@@ -52,6 +50,8 @@ let board = [[null, null, null, null, null, null, null],
 let gameOver = false
 
 function takeTurn(row, column) { 
+   
+   
     let clickedSquare = board[row][column]
     if (clickedSquare === null && redTurn === true && gameOver === false) {
         board[row][column] = "reds"
@@ -65,7 +65,12 @@ function takeTurn(row, column) {
     }
     console.log(board)
 
-   
+    if (redTurn === true) {
+        playerTurn.innerHTML = txt1.value + "'s turn"
+    }
+    else {
+        playerTurn.innerHTML = txt2.value + "'s turn"
+    }
 
 
 
