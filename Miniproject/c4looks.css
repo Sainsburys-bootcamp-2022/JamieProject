@@ -1,6 +1,6 @@
 .column {
-    width: 95px;
-    height: 95px;
+    width: 85px;
+    height: 85px;
     margin: 0px;
     border: 7px rgb(31, 47, 227) solid;
     display: flex;
@@ -11,7 +11,7 @@
 }
 
 .row {
-    width: 665px;
+    width: 595px;
     margin: 0px auto;
     display: flex;
     justify-content: center;
@@ -45,19 +45,20 @@ body {
     width: 222px;
     justify-content: center;
     margin-top: 160px;
-    font-size: large;
+    font-size: x-large;
     height: 100%;
     width: 20%;
+    margin-bottom: 400px;
 }
 #player2output {
     float: right;
     width: 222px;
     justify-content: center;
     margin-top: 160px;
-    font-size: large;
+    font-size: x-large;
     height: 100%;
     width: 20%;
-
+    margin-bottom: 400px;
 }
 #namesInput {
     margin-bottom: 0px
@@ -65,4 +66,10 @@ body {
 
 #grid {
     margin-top: 10px
+}
+#sc1 {
+    margin-top: 60px
+}
+#sc2 {
+    margin-top: 60px
 }

@@ -17,6 +17,14 @@ function userdisplay() {
     out1.innerHTML = txt1.value;
     out2.innerHTML = txt2.value;
 
+    if (redTurn === true) {
+        playerTurn.innerHTML = txt1.value + "'s turn"
+    }
+    else {
+        playerTurn.innerHTML = txt2.value + "'s turn"
+    }
+
+
 }
 btn1.addEventListener('click',userdisplay);
 
@@ -34,15 +42,6 @@ let board = [[null, null, null, null, null, null, null],
 
  let redTurn = true;
 
-
- function getNewBoard(){
-   return [[null, null, null, null, null, null, null],
-           [null, null, null, null, null, null, null],
-           [null, null, null, null, null, null, null],
-           [null, null, null, null, null, null, null],
-           [null, null, null, null, null, null, null],
-           [null, null, null, null, null, null, null],] 
- }
 
 
 // Take the row and column number between 0 and 2.....
@@ -72,23 +71,16 @@ function takeTurn(row, column) {
         playerTurn.innerHTML = txt2.value + "'s turn"
     }
 
-
-
     
     console.log("takeTurn was called with row: " + row + ", column:" + column);
     console.log(`takeTurn was called with row: ${row}, column: ${column}`);
 }
 
 
-
-
 // Return either "noughts", "crosses" or "nobody" if the game is over.
 // Otherwise return null to continue playing.
-function checkWinner() 
-    { 
-
-    
-
+function checkWinner() {
+  
     
     for (i=0; i<6; i++){
         for (j=0; j<7; j++){
@@ -126,20 +118,23 @@ function checkWinner()
      gameOver = true
      return (winner = (txt2.value))
      
-     
-       }  
+       }   
+      /*else if (board[every][every] !== (null))
+       {  
+           gameOver = true
+           return (winner = "nobody. It's a draw");  
+       }*/
+           
+}       
 }
-}
-     
-        
-    
+   
+
     console.log("checkWinner was called");
     return null;
 }
 
-
- 
     
+
    
 // Set the game state back to its original state to play another game.
 function resetGame() {
@@ -157,6 +152,15 @@ function resetGame() {
           redTurn = true
           console.log ("Red's Turn")
 
+          if (redTurn === true) {
+            playerTurn.innerHTML = txt1.value + "'s turn"
+        }
+        else {
+            playerTurn.innerHTML = txt2.value + "'s turn"
+        }
+    
+    
+    
 }
 
 // Return the current board state with either a "nought" or a "cross" in

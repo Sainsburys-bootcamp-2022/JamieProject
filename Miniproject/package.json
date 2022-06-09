@@ -1,0 +1,23 @@
+{
+  "name": "jamieproject",
+  "version": "1.0.0",
+  "description": "\"fortesting\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sainsburys-bootcamp-2022/JamieProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sainsburys-bootcamp-2022/JamieProject/issues"
+  },
+  "homepage": "https://github.com/Sainsburys-bootcamp-2022/JamieProject#readme",
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "jest": "^28.1.1"
+  }
+}
