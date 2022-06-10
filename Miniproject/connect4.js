@@ -41,8 +41,8 @@ let board = [[null, null, null, null, null, null, null],
 
 
  let redTurn = true;
-
-
+ let takenTurn = 0;
+ 
 
 // Take the row and column number between 0 and 2.....
 // (inclusive) and update the game state.
@@ -70,13 +70,15 @@ function takeTurn(row, column) {
     else {
         playerTurn.innerHTML = txt2.value + "'s turn"
     }
-
     
+    
+    takenTurn += 1;
+
     console.log("takeTurn was called with row: " + row + ", column:" + column);
     console.log(`takeTurn was called with row: ${row}, column: ${column}`);
 }
-
-
+ 
+ 
 // Return either "noughts", "crosses" or "nobody" if the game is over.
 // Otherwise return null to continue playing.
 function checkWinner() {
@@ -85,7 +87,7 @@ function checkWinner() {
     for (i=0; i<6; i++){
         for (j=0; j<7; j++){
         
-    
+             
 
     if((( board[i][j] === "reds" && board[i]?.[j+1] === "reds" && board[i]?.[j+2] === "reds" && board[i]?.[j+3] === "reds") ||
        ( board[i][j] === "reds" && board[i+1]?.[j] === "reds" && board[i+2]?.[j] === "reds" && board[i+3]?.[j] === "reds") ||
@@ -118,19 +120,21 @@ function checkWinner() {
      gameOver = true
      return (winner = (txt2.value))
      
-       }   
-      /*else if (board[every][every] !== (null))
-       {  
-           gameOver = true
-           return (winner = "nobody. It's a draw");  
-       }*/
-           
-}       
-}
-   
+      }   
+    
+    else if (takenTurn === 42)
 
+      {  
+          gameOver = true
+          return (winner = "nobody. It's a draw");  
+      }
+    }
+           
+}    
+        
     console.log("checkWinner was called");
     return null;
+         
 }
 
     
@@ -147,6 +151,9 @@ function resetGame() {
              [null, null, null, null, null, null, null],
              [null, null, null, null, null, null, null],
              [null, null, null, null, null, null, null],] 
+             
+    takenTurn = 0
+  
 
           gameOver = false
           redTurn = true
