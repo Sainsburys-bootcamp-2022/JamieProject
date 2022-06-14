@@ -10,8 +10,6 @@ let yellowScore = document.getElementById('yellowScore')
 let yellowWins =0;
 
 
-
-
 function userdisplay() {
 
     out1.innerHTML = txt1.value;
@@ -155,9 +153,9 @@ function resetGame() {
     takenTurn = 0
   
 
-          gameOver = false
-          redTurn = true
-          console.log ("Red's Turn")
+    gameOver = false
+    redTurn = true
+    console.log ("Red's Turn")
 
           if (redTurn === true) {
             playerTurn.innerHTML = txt1.value + "'s turn"
@@ -190,3 +188,5 @@ if (typeof exports === 'obcect') {
 } else {
     console.log("Running in Browser")
 }
+
+

@@ -1,14 +1,3 @@
-// This file contains helper code beyond the first week "Intro to JavaScript" course content.
-// You should not have to make any changes in this file to get your game working.
-
-// Validate academite functions are available
-const functions = ["takeTurn", "getBoard", "checkWinner", "resetGame"];
-for (f of functions) {
-    const functionObject = window[f];
-    if (typeof functionObject !== "function") {
-        throw `Looks like expected function '${f}' is missing. Double check the function signatures from academy.js are still present and unaltered.`;
-    }
-}
 
 // Clear down the elements drawn on the board.
 function clearBoard() {
@@ -33,14 +22,6 @@ function drawBoard(board) {
     }
 }
 
-function isValidRowOrColumn(array) {
-    return Array.isArray(array) && array.length === 6||7;
-}
-
-function isValidColumn(columnArray) {
-    return isValidRowOrColumn(columnArray) && columnArray.every(function (item) { return ["reds", "yellows", null].includes(item); });
-}
-
 // A grid position was clicked call the game's turn function, redraw and then check for a winner.
 function positionClick(rowIndex, columnIndex, event) { 
     const board = getBoard();
@@ -57,9 +38,6 @@ function positionClick(rowIndex, columnIndex, event) {
     else if (board[0][columnIndex] === null)
     takeTurn(0, columnIndex);
     
-    if (!isValidRowOrColumn(board) || !board.every(isValidColumn)) {
-        throw "Expecting 'getBoard' to return a 2d array where all values match are null or one of the strings 'reds' or 'yellows'. Actually received: " + JSON.stringify(board);
-    }
     drawBoard(board);
     const winner = checkWinner();
     if (winner) {
@@ -100,8 +78,6 @@ if (typeof exports === 'object') {
     module.exports = {
         clearBoard,
         drawBoard,
-        isValidRowOrColumn,
-        isValidColumn,
         positionClick,
         resetClick,
     }
