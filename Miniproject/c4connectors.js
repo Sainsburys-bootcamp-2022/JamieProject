@@ -43,14 +43,14 @@ function positionClick(rowIndex, columnIndex, event,) {
     drawBoard(board);
     checkWinner();
     
-    yellowTurn();
+    //yellowTurn();
     //setTimeout(function() { 1000, yellowTurn() },1000)
     
-    //setTimeout(()=> yellowTurn(), 500);
-      
-  
-    drawBoard(board);
-    checkWinner();
+    setTimeout(()=> {
+        yellowTurn();
+        drawBoard(board);
+        checkWinner();
+    }, 1000);
 
     
 }
