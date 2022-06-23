@@ -23,7 +23,7 @@ function drawBoard(board) {
 }
 
 // A grid position was clicked call the game's turn function, redraw and then check for a winner.
-function positionClick(rowIndex, columnIndex, event) { 
+function positionClick(rowIndex, columnIndex, event,) { 
     const board = getBoard();
     if ( board[5][columnIndex] === null)
     takeTurn(5, columnIndex);
@@ -38,15 +38,21 @@ function positionClick(rowIndex, columnIndex, event) {
     else if (board[0][columnIndex] === null)
     takeTurn(0, columnIndex);
     
+    
+    
     drawBoard(board);
-    const winner = checkWinner();
-    if (winner) {
-        
-        const winnerName = document.getElementById("winner-name");
-        winnerName.innerText = winner;
-        const winnerDisplay = document.getElementById("winner-display");
-        winnerDisplay.style.display = "block";
-    }
+    checkWinner();
+    
+    yellowTurn();
+    //setTimeout(function() { 1000, yellowTurn() },1000)
+    
+    //setTimeout(()=> yellowTurn(), 500);
+      
+  
+    drawBoard(board);
+    checkWinner();
+
+    
 }
 
 // The reset button was clicked, call the game's reset function then reset the DOM.
@@ -80,6 +86,7 @@ if (typeof exports === 'object') {
         drawBoard,
         positionClick,
         resetClick,
+        setTimeout
     }
 } else {
     console.log("Running in Browser")

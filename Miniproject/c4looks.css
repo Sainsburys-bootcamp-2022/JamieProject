@@ -73,3 +73,7 @@ body {
 #sc2 {
     margin-top: 60px
 }
+#player-Turn {
+justify-content: center;
+style: block
+}
